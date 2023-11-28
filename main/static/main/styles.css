@@ -1,0 +1,78 @@
+body {
+    background-color: #81d4fa;
+    color: #000000;
+    font-family: 'Montserrat', sans-serif;
+}
+.header {
+    text-align: center;
+    color: #fff; /* Задайте цвет текста по вашему вкусу */
+    padding-left: 250px; /* Задайте отступы по вашему вкусу */
+    padding-right: 250px;
+    padding-top: 100px;
+
+}
+.site-title {
+    margin: 2px;
+    font-size: 82px;
+    border:  #000000;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+}
+.button-container {
+    text-align: center; /* Центрируем кнопки по горизонтали */
+    margin-top: 200px; /* Добавим отступ сверху, по вашему вкусу */
+    display: inline-block;
+
+}
+.wrapper{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+
+}
+.ooo{
+    margin-bottom: 20px;
+    margin-top: 60px;
+}
+
+a{
+  display: block;
+  width: 280px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 18px;
+  font-family: sans-serif;
+  text-decoration: none;
+  color: #333;
+  border: 2px solid #333;
+  letter-spacing: 2px;
+  text-align: center;
+  position: relative;
+  transition: all .15s;
+}
+
+a span{
+  position: relative;
+  z-index: 2;
+}
+
+a:after{
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: #ff003b;
+  transition: all .35s;
+}
+
+a:hover{
+  color: #fff;
+}
+
+a:hover:after{
+  width: 100%;
+}
+
