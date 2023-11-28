@@ -14,7 +14,6 @@ body {
 .site-title {
     margin: 2px;
     font-size: 82px;
-    border:  #000000;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
 }
 .button-container {
@@ -44,12 +43,13 @@ a{
   font-size: 18px;
   font-family: sans-serif;
   text-decoration: none;
-  color: #333;
-  border: 2px solid #333;
+  color: #fff;
+  border: 2px solid #ffffff;
   letter-spacing: 2px;
   text-align: center;
   position: relative;
   transition: all .15s;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
 }
 
 a span{
@@ -64,12 +64,12 @@ a:after{
   left: 0;
   width: 0;
   height: 100%;
-  background: #ff003b;
+  background: rgb(255, 255, 255);
   transition: all .35s;
 }
 
 a:hover{
-  color: #fff;
+  color: #81d4fa;
 }
 
 a:hover:after{
