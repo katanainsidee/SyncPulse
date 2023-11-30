@@ -1,19 +1,35 @@
 body {
     background-color: #81d4fa;
     font-family: 'Montserrat', sans-serif;
+    padding-top: 85px;
 
 }
+
+a {
+    text-decoration: none;
+}
+
 .events-header {
-    margin-top: 30px;
+    position: fixed;
     text-align: center;
     color: #fff;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
     font-size: 50px;
+    background-color: #49add5;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+    margin: 0px;
+    padding: 15px 0 15px 0;
 }
 .events-list{
 
 }
 .block-event {
+
     margin-top: 30px;
     background-color: #eeeded; /* Цвет заливки */
     padding: 12px 20px 12px 20px;
@@ -49,15 +65,16 @@ body {
 
 
 }
-.add-user {
+.open-button {
     float: right;
     padding: 8px;
     border: 2px solid #81d4fa;
+    color: #5db9e3;
     border-radius: 11px;
     cursor: pointer;
     transition: color, background-color, transform 0.2s ease;
 }
-.add-user:hover{
+.open-button:hover{
     color: white;
     background-color: #81d4fa;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
