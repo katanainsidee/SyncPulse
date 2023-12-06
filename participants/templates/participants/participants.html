@@ -1,0 +1,44 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="{% static 'participants/participants.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="add-header">
+        <div class="text-header"> Добавление участника</div>
+        <a href="/">
+        <ion-icon class="home-button" name="home-outline" ></ion-icon></a>
+    </h1>
+
+    <div class="main">
+        <form method="post" class="post-form">
+            {% csrf_token %} <br>
+            {{ form.last_name }}<br>
+            {{ form.first_name }}<br>
+            {{ form.patronymic }}<br>
+            {{ form.date_of_birth }}<br>
+            {{ form.district }}<br>
+            {{ form.street }}<br>
+            {{ form.house_number }}<br>
+            {{ form.building }}<br>
+            {{ form.apartment_number }}<br>
+            {{ form.phone_number }}<br>
+            {{ form.additional_phone_number }}<br>
+            <div class="error"> {{ error }}</div>
+        <button class="add-button" type="submit">Добавить участника</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,15 +1,16 @@
 body {
+    margin: 0;
     background-color: #81d4fa;
     font-family: 'Montserrat', sans-serif;
-    padding-top: 85px;
-
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
 
-a {
-    text-decoration: none;
-}
+.add-header {
 
-.events-header {
     display: flex ;
     position: fixed;
     align-items: center;
@@ -26,60 +27,47 @@ a {
     margin: 0px;
     padding: 15px 0 15px 0;
 }
-.events-list{
-
-}
-.block-event {
-
-    margin-top: 30px;
-    background-color: #eeeded; /* Цвет заливки */
-    padding: 12px 20px 12px 20px;
-    margin-left: 150px;
-    margin-right: 150px;
-    border-radius: 30px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-    overflow: hidden;
-}
-
-.title {
+.main {
+    background-color: #ffffff;
+    min-width: 680px;
+    border-radius: 20px;
+    padding: 0 15px 15px 15px;
+    box-shadow: 2px 6px 10px rgba(0, 0, 0, 0.15);
+    min-height: 630px;
+    max-width: 700px;
     text-align: center;
-    font-weight: 510;
-    color: #565555;
-    margin-bottom: 15px;
-    font-size: 21px;
-
-
-
 }
 
-.description {
-    margin-bottom: 15px;
-    font-size: 20px;
-    font-weight: 480;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+.form-control {
+    width: 400px;
+    padding: 9px;
+    margin-top: 10px;
+    border: 1px solid #81d4fa;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
-.date{
-    font-size: 15px;
-    text-align: left;
-    color: #6e5959;
 
-
-
-}
-.open-button {
-    float: right;
-    padding: 8px;
-    border: 2px solid #81d4fa;
-    color: #5db9e3;
-    border-radius: 11px;
-    cursor: pointer;
-    transition: color, background-color, transform 0.2s ease;
-}
-.open-button:hover{
-    color: white;
+.add-button {
+    margin-top: 20px;
     background-color: #81d4fa;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    transform: scale(1.03);
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color,color, border, transform 0.3s ease;
+}
+
+.add-button:hover {
+    background-color: #ffffff;
+    transform: scale(1.05);
+    color: #81d4fa;
+    border: 2px solid #81d4fa;
+}
+
+.error {
+    color:red;
+    margin-top: 20px;
 }
 .text-header{
     margin-left: 200px;
