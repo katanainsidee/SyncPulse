@@ -65,3 +65,6 @@ body {
     justify-content: flex-start;
     align-items: flex-end;
 }
+a{
+    text-decoration: none;
+}

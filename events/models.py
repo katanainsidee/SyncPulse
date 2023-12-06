@@ -1,4 +1,5 @@
 from django.db import models
+from phonenumber_field.modelfields import PhoneNumberField
 
 
 class Events(models.Model):
@@ -13,3 +14,18 @@ class Events(models.Model):
     class Meta:
         verbose_name = 'Мероприятие'
         verbose_name_plural = 'Мероприятия'
+
+
+class Participant(models.Model):
+    event = models.ForeignKey(Events, on_delete=models.CASCADE)
+    first_name = models.CharField(max_length=255)
+    last_name = models.CharField(max_length=255)
+    patronymic = models.CharField(max_length=255)
+    date_of_birth = models.DateField()
+    district = models.CharField(max_length=255, blank=True)
+    street = models.CharField(max_length=255, blank=True)
+    house_number = models.PositiveIntegerField(blank=True)
+    building = models.CharField(max_length=255, blank=True)
+    apartment_number = models.PositiveIntegerField(blank=True)
+    phone_number = PhoneNumberField()
+    additional_phone_number = PhoneNumberField(blank=True)

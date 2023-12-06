@@ -17,7 +17,7 @@
 </head>
 <body>
     <h1 class="events-header">
-        <div class="text-header"> Добавление участника</div>
+        <div class="text-header">Мероприятия</div>
         <a href="/">
         <ion-icon class="home-button" name="home-outline" ></ion-icon></a>
     </h1>
@@ -26,7 +26,7 @@
             <div class="block-event">
                 <div class="title">{{ el.title }}</div>
                 <div class="description">{{ el.description }}</div>
-                <span class="date">Дата проведения: {{ el.date }}</span>
+                <span class="date">Дата проведения: {{el.date}}</span>
                 <a href="{% url 'event_detail' event_id=el.id %}" class="open-button">Открыть</a>
             </div>
         {% endfor %}
