@@ -14,7 +14,7 @@ class ParticipantProfile(models.Model):
     apartment_number = models.PositiveIntegerField(help_text='Квартира', blank=True)
     phone_number = PhoneNumberField(help_text='Номер телефона')
     additional_phone_number = PhoneNumberField(help_text='Доп. номер телефона', blank=True)
-    # Другие поля, если необходимо
+
 
     def __str__(self):
         return f"{self.last_name} {self.first_name} {self.patronymic} {self.phone_number}"

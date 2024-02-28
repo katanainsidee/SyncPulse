@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Events
 from .forms import ParticipantForm
+from django.http import JsonResponse
+import json
 
 
 def events(request):
@@ -29,3 +31,6 @@ def add_participant(request, event_id):
         form = ParticipantForm()
 
     return render(request, 'events/add_participant.html', {'form': form, 'event': event, 'error': error})
+
+
+
