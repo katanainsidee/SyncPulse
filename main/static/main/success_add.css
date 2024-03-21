@@ -1,0 +1,84 @@
+html {
+    color: #000000;
+    font-family: 'Montserrat', sans-serif;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(to bottom right, #ea3e39, #02b4ed);
+}
+.header {
+    text-align: center;
+    padding-left: 250px;
+    padding-right: 250px;
+    padding-top: 100px;
+
+}
+.site-title {
+    margin: 2px;
+    font-size: 82px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+}
+.button-container {
+    text-align: center;
+    margin-top: 200px;
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+}
+.wrapper{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.ooo{
+    margin-bottom: 60px;
+    margin-top: 40px;
+}
+
+a{
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+
+.content {
+    display: grid;
+    place-items: center; /* Центрирование элементов по горизонтали и вертикали */
+    height: 100%; /* Устанавливаем высоту контейнера на весь экран */
+}
+
+.success {
+    margin-top: 200px;
+    text-align: center;
+    font-size: 30px;
+}
+.main-button {
+    margin-top: 200px;
+    justify-content: center;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    padding: 12px 20px;
+    background-color: rgba(119, 157, 162, 0);
+    border: 2px solid #b15b65;
+    color: #b15b65;
+    border-radius: 11px;
+    cursor: pointer;
+    transition: color, background-color, transform 0.2s ease;
+}
+
+.main-button:hover{
+    color: white;
+    background-color: #b15b65;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transform: scale(1.03);
+}
