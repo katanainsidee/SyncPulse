@@ -1,8 +1,14 @@
+html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 body {
-    background-color: #81d4fa;
     font-family: 'Montserrat', sans-serif;
     padding-top: 85px;
-
+    background: linear-gradient(to bottom right, #ea3e39, #02b4ed);
 }
 
 a {
@@ -13,24 +19,45 @@ a {
     display: flex ;
     position: fixed;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     color: #fff;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
     font-size: 50px;
-    background-color: #49add5;
+    background-color: rgba(66, 66, 38, 0);
     top: 0;
     left: 0;
     right: 0;
-
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
-    margin: 0px;
-    padding: 15px 0 15px 0;
+    margin: 0;
+    padding: 15px 170px 15px 220px;
 }
-.events-list{
 
+.text-header {
+    margin: 0 auto;
 }
+.home-button{
+    cursor: pointer;
+    transition: transform 0.25s ease;
+    margin-top: 5px;
+}
+
+.home-button:hover{
+    transform: scale(1.05);
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+a:hover {
+    color: white;
+}
+
+a:active {
+    color: white;
+}
+
 .block-event {
-
     margin-top: 30px;
     background-color: #eeeded; /* Цвет заливки */
     padding: 12px 20px 12px 20px;
@@ -47,9 +74,6 @@ a {
     color: #565555;
     margin-bottom: 15px;
     font-size: 21px;
-
-
-
 }
 
 .description {
@@ -62,45 +86,20 @@ a {
     font-size: 15px;
     text-align: left;
     color: #6e5959;
-
-
-
 }
 .open-button {
     float: right;
+    font-weight: bold;
     padding: 8px;
-    border: 2px solid #81d4fa;
-    color: #5db9e3;
+    border: 2px solid #ea3e39;
+    color: #ea3e39;
     border-radius: 11px;
     cursor: pointer;
     transition: color, background-color, transform 0.2s ease;
 }
 .open-button:hover{
     color: white;
-    background-color: #81d4fa;
+    background-color: #ea3e39;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     transform: scale(1.03);
-}
-.text-header{
-    margin-left: 200px;
-}
-.home-button{
-    margin-left: 150px;
-    cursor: pointer;
-    transition: transform 0.25s ease;
-}
-
-.home-button:hover{
-    transform: scale(1.05);
-}
-a {
-    text-decoration: none; /* Убирает подчеркивание */
-    color: white;
-}
-a:hover {
-    color: white; /* Цвет при наведении остается таким же, как и у обычной ссылки */
-}
-
-a:active {
-    color: white; /* Цвет при нажатии остается таким же, как и у обычной ссылки */
 }

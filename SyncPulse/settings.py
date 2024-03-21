@@ -135,7 +135,6 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'main/static'),
     os.path.join(BASE_DIR, 'events/static'),
     os.path.join(BASE_DIR, 'participants/static')
-    # Добавьте сколько угодно других путей по мере необходимости
 ]
 DATE_INPUT_FORMATS = ['%d.%m.%Y']
 DATE_FORMAT = ['%d.%m.%Y']

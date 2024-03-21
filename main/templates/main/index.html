@@ -19,11 +19,11 @@
     </div>
     <div class="button-container">
         <div class="wrapper">
-            <a href="/admin" class="ooo"><span>добавить мероприятие</span></a>
+            <a href="{% url 'add_event' %}" class="ooo"><span>добавить мероприятие</span></a>
             <a href="{% url 'add_user'%}" class="ooo"><span>добавить участника</span></a>
-            <a href="{% url 'events'%}"><span>текущие мероприятия</span></a>
+            <a href="{% url 'events'%}" class="ooo"><span>текущие мероприятия</span></a>
+            <a href="/admin"><span>администрирование</span></a>
         </div>
-
     </div>
 </body>
 </html>

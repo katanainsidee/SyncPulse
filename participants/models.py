@@ -12,8 +12,8 @@ class ParticipantProfile(models.Model):
     house_number = models.PositiveIntegerField(help_text='Номер дома', blank=True)
     building = models.CharField(max_length=255, help_text='Корпус/строение', blank=True)
     apartment_number = models.PositiveIntegerField(help_text='Квартира', blank=True)
-    phone_number = PhoneNumberField(help_text='Номер телефона')
-    additional_phone_number = PhoneNumberField(help_text='Доп. номер телефона', blank=True)
+    phone_number = models.CharField(max_length=18, help_text='Номер телефона')
+    additional_phone_number = models.CharField(max_length=18, help_text='Доп. номер телефона', blank=True)
 
 
     def __str__(self):

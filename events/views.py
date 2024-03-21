@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Events
 from .forms import ParticipantForm
 from django.http import JsonResponse
+from django.urls import reverse
 import json
 
 
@@ -22,15 +23,27 @@ def add_participant(request, event_id):
         form = ParticipantForm(request.POST)
         if form.is_valid():
             participant = form.save(commit=False)
-            participant.event = event
-            participant.save()
-            return redirect('event_detail', event_id=event.id)
+            # Проверяем, есть ли уже участник с таким номером телефона
+            existing_participant = event.participant_set.filter(phone_number=participant.phone_number).first()
+            if existing_participant:
+                error = 'Участник с таким номером телефона уже зарегистрирован на мероприятии'
+            else:
+                participant.event = event
+                participant.save()
+                if request.headers.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
+                    return JsonResponse({'redirect_url': reverse('event_detail', args=[event.id])})
+                else:
+                    return redirect('event_detail', event_id=event.id)
         else:
             error = 'Поля заполнены неверно'
     else:
         form = ParticipantForm()
 
-    return render(request, 'events/add_participant.html', {'form': form, 'event': event, 'error': error})
+    if request.headers.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
+        return JsonResponse({'error': error})
+    else:
+        return render(request, 'events/add_participant.html', {'form': form, 'event': event, 'error': error})
+
 
 
 

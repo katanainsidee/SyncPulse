@@ -16,6 +16,10 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script id="script" src="{% static 'events/autocomplete_script.js' %}" data-json-url="{% static 'events/data.json' %}"></script>
+    <script src="{% static 'events/date_fromatter.js' %}"></script>
+    <script src="{% static 'events/phone_formatter.js' %}"></script>
+    <script src="{% static 'events/additional_phone_number_formatter.js' %}"></script>
+    <script src="{% static 'events/check_paricip_in_event.js' %}"></script>
     <title>Добавление участника</title>
 </head>
 <body>
@@ -28,6 +32,7 @@
     <div class="main">
         <form method="post" class="post-form">
             {% csrf_token %} <br>
+            {{ form.phone_number }}<br>
             {{ form.last_name }}<br>
             {{ form.first_name }}<br>
             {{ form.patronymic }}<br>
@@ -37,11 +42,11 @@
             {{ form.house_number }}<br>
             {{ form.building }}<br>
             {{ form.apartment_number }}<br>
-            {{ form.phone_number }}<br>
             {{ form.additional_phone_number }}<br>
             <div class="error"> {{ error }}</div>
         <button class="add-button" type="submit">Добавить участника</button>
         </form>
+
     </div>
 </body>
 </html>

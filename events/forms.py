@@ -11,46 +11,60 @@ class ParticipantForm(ModelForm):
         widgets = {
             "first_name": TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'Имя'
+                'placeholder': 'Имя',
+                'id': 'first_name'
             }),
             "last_name": TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'Фамилия'
+                'placeholder': 'Фамилия',
+                'id': 'last_name'
             }),
             "patronymic": TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'Отчество'
+                'placeholder': 'Отчество',
+                'id': 'patronymic'
             }),
             "date_of_birth": DateInput(attrs={
                 'class': 'form-control',
                 'placeholder': 'Дата рождения (ДД.ММ.ГГГГ)',
+                'id': 'date_of_birth',
+                'maxlength': '10'
             }),
             "district": TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'Район'
+                'placeholder': 'Район',
+                'id': 'district'
             }),
             "street": TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'Улица'
+                'placeholder': 'Улица',
+                'id': 'street'
             }),
             "house_number": TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'Дом'
+                'placeholder': 'Дом',
+                'id': 'house_number'
             }),
             "building": TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'Корпус/строение'
+                'placeholder': 'Корпус/строение',
+                'id': 'building'
             }),
             "apartment_number": TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'Квартира'
+                'placeholder': 'Квартира',
+                'id': 'apartment_number'
             }),
             "phone_number": TextInput(attrs={
+                'maxlength': "18",
                 'class': 'form-control',
-                'placeholder': 'Номер телефона +7XXXXXXXXXX'
+                'placeholder': 'Номер телефона +7 (999) 999-99-99',
+                'id': 'phone_number'
             }),
             "additional_phone_number": TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'Доп. номер телефона'
+                'placeholder': 'Доп. номер телефона',
+                'id': 'additional_phone_number',
+                'maxlength': '15'
             }),
         }
