@@ -139,3 +139,5 @@ STATICFILES_DIRS = [
 DATE_INPUT_FORMATS = ['%d.%m.%Y']
 DATE_FORMAT = ['%d.%m.%Y']
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+LOGIN_URL = '/accounts/login/'
+LOGIN_ATTEMPTS_LIMIT = 6

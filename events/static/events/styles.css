@@ -8,8 +8,9 @@ html {
 body {
     font-family: 'Montserrat', sans-serif;
     padding-top: 85px;
-    background: linear-gradient(to bottom right, #ea3e39, #02b4ed);
+    background: linear-gradient(to bottom right, #ea3e39, #02b4ed) fixed;
 }
+
 
 a {
     text-decoration: none;
