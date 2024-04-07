@@ -1,6 +1,6 @@
 
 from .models import Participant
-from django.forms import ModelForm, TextInput, NumberInput, DateInput
+from django.forms import ModelForm, TextInput, NumberInput, DateInput, Select
 
 
 class ParticipantForm(ModelForm):
@@ -66,5 +66,19 @@ class ParticipantForm(ModelForm):
                 'placeholder': 'Доп. номер телефона',
                 'id': 'additional_phone_number',
                 'maxlength': '15'
-            }),
+            })
+        }
+
+
+class ParticipantColorForm(ModelForm):
+    class Meta:
+        model = Participant
+        fields = ['color']
+        widgets = {
+            'color': Select(choices=[
+                ('white', 'Белый'),
+                ('yellow', 'Желтый'),
+                ('green', 'Зеленый'),
+                ('red', 'Красный')
+            ])
         }

@@ -12,6 +12,7 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def add_user(request):
+    all_participants = ParticipantProfile.objects.order_by('last_name')
     error = ''
     if request.method == 'POST':
         form = ParticipantProfileForm(request.POST)
@@ -29,7 +30,8 @@ def add_user(request):
     form = ParticipantProfileForm(request.POST or None)
     data = {
         'form': form,
-        'error': error
+        'error': error,
+        'all_participants': all_participants
     }
 
     return render(request, 'participants/participants.html', data)

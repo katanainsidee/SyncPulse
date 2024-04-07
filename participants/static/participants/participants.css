@@ -14,7 +14,7 @@ body {
     overflow: hidden;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     height: 100vh;
 }
 
@@ -36,15 +36,69 @@ body {
 }
 
 .main {
+    margin-left: 20px;
     background-color: #ffffff;
-    min-width: 680px;
     border-radius: 20px;
     padding: 15px 15px 5px 15px;
     box-shadow: 2px 6px 10px rgba(0, 0, 0, 0.15);
     min-height: 630px;
-    max-width: 700px;
+    width: 400px;
     text-align: center;
 }
+
+.part-table{
+    font-size: 16px;
+    margin-right: 20px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 15px 15px 5px 15px;
+    box-shadow: 2px 6px 10px rgba(0, 0, 0, 0.15);
+    height: 630px;
+    width: 1400px;
+    text-align: center;
+    overflow: auto;
+}
+
+tr:nth-child(1) td {
+  font-weight: bold;
+}
+
+
+table.iksweb{
+	width: 100%;
+	border-collapse: collapse;
+	border-spacing: 0;
+	height: auto;
+}
+table.iksweb, table.iksweb td  {
+	border: 1px solid #916b7e;
+}
+table.iksweb td {
+	padding: 3px;
+	width: auto;
+	height: 30px;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+table.iksweb td.delete-case {
+    border: 1px solid rgba(145, 107, 126, 0);
+}
+
+table.iksweb td.change-color {
+    border: 1px solid rgba(145, 107, 126, 0);
+}
+
+
+.delete {
+    color: black;
+}
+.delete:hover{
+    color:black;
+}
+
 
 .form-control {
     width: 400px;
@@ -111,3 +165,4 @@ a:active {
     font-family: 'Montserrat', sans-serif;
     color: rgba(27, 27, 27, 0.29);
 }
+
