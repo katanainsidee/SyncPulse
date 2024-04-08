@@ -24,6 +24,7 @@ def event_detail(request, event_id):
 def add_participant(request, event_id):
     event = Events.objects.get(pk=event_id)
     participants_list = Participant.objects.filter(event=event)
+    number = len(participants_list)+1
     error = ''
     if request.method == 'POST':
         form = ParticipantForm(request.POST)
@@ -34,6 +35,7 @@ def add_participant(request, event_id):
                 error = 'Участник с таким номером телефона уже зарегистрирован на мероприятии'
             else:
                 participant.event = event
+                participant.number = number
                 participant.save()
                 if request.headers.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
                     return JsonResponse({'redirect_url': reverse('event_detail', args=[event.id])})
@@ -60,20 +62,13 @@ def delete_participant(request, event_id, participant_id):
 
 @login_required
 def update_color(request, event_id, participant_id):
-    print(f'Работаем! event_id - {event_id}, request - {request.method}')
     if request.method == 'POST':
         event = Events.objects.get(pk=event_id)
         participant = Participant.objects.get(event=event, id=participant_id)
-
-        # Получаем данные из тела запроса JSON
         data = json.loads(request.body)
         color = data.get('color')
-
-        print(f'цвет - {color}')
-
         participant.color = color
         participant.save()
-        print('Сейчас обновимся')
         return redirect('add_participant', event_id)
 
     return JsonResponse({'error': 'Метод запроса не разрешен'}, status=405)

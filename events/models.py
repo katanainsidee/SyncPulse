@@ -30,3 +30,4 @@ class Participant(models.Model):
     phone_number = models.CharField(max_length=18)
     additional_phone_number = models.CharField(max_length=18, blank=True)
     color = models.CharField(max_length=20, default='white')
+    number = models.IntegerField(default=1)

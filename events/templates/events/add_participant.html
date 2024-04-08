@@ -53,6 +53,7 @@
         <table class="iksweb">
             <tbody>
                 <tr>
+                    <td>№</td>
                     <td>Фамилия</td>
                     <td>Имя</td>
                     <td>Отчество</td>
@@ -69,6 +70,7 @@
                 </tr>
             {% for participant in participants_list %}
                 <tr id="changeable-div" >
+                    <td style="background-color: {{ participant.color }};">{{ participant.number }}</td>
                     <td style="background-color: {{ participant.color }};">{{ participant.last_name }}</td>
                     <td style="background-color: {{ participant.color }};">{{ participant.first_name }}</td>
                     <td style="background-color: {{ participant.color }};">{{ participant.patronymic }}</td>
