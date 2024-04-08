@@ -12,7 +12,8 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def add_user(request):
-    all_participants = ParticipantProfile.objects.order_by('last_name')
+    participants_list = ParticipantProfile.objects.all()
+    number = len(participants_list) + 1
     error = ''
     if request.method == 'POST':
         form = ParticipantProfileForm(request.POST)
@@ -21,9 +22,11 @@ def add_user(request):
             if ParticipantProfile.objects.filter(phone_number=phone_number).exists():
                 error += 'Пользователь с таким номером телефона уже зарегистрирован'
             else:
-                form.save()
+                participant = form.save(commit=False)
+                participant.number = number
+                participant.save()
                 messages.success(request, 'Новый пользователь успешно добавлен')
-                return redirect('success_page')
+                return redirect('add_user')
         else:
             error += 'Поля заполнены неверно'
 
@@ -31,10 +34,16 @@ def add_user(request):
     data = {
         'form': form,
         'error': error,
-        'all_participants': all_participants
+        'participants_list': participants_list
     }
 
     return render(request, 'participants/participants.html', data)
+
+
+def delete(request, participant_id):
+    participant = ParticipantProfile.objects.get(id=participant_id)
+    participant.delete()
+    return redirect('add_user')
 
 
 @login_required

@@ -50,6 +50,7 @@
         <table class="iksweb">
             <tbody>
                 <tr>
+                    <td>№</td>
                     <td>Фамилия</td>
                     <td>Имя</td>
                     <td>Отчество</td>
@@ -61,20 +62,23 @@
                     <td>Кв.</td>
                     <td>Номер телефона</td>
                     <td>Доп. тел.</td>
+                    <td class="delete-case"></td>
                 </tr>
-            {% for part in all_participants %}
-                <tr>
-                    <td>{{ part.last_name }}</td>
-                    <td>{{ part.first_name }}</td>
-                    <td>{{ part.patronymic }}</td>
-                    <td>{{ part.date_of_birth }}</td>
-                    <td>{{ part.district }}</td>
-                    <td>{{ part.street }}</td>
-                    <td>{{ part.house_number }}</td>
-                    <td>{{ part.building }}</td>
-                    <td>{{ part.apartment_number }}</td>
-                    <td>{{ part.phone_number }}</td>
-                    <td>{{ part.additional_phone_number }}</td>
+            {% for participant in participants_list %}
+                <tr id="changeable-div" >
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ participant.last_name }}</td>
+                    <td>{{ participant.first_name }}</td>
+                    <td>{{ participant.patronymic }}</td>
+                    <td>{{ participant.date_of_birth }}</td>
+                    <td>{{ participant.district }}</td>
+                    <td>{{ participant.street }}</td>
+                    <td>{{ participant.house_number }}</td>
+                    <td>{{ participant.building }}</td>
+                    <td>{{ participant.apartment_number }}</td>
+                    <td>{{ participant.phone_number }}</td>
+                    <td>{{ participant.additional_phone_number }}</td>
+                    <td class="delete-case"><a href="{% url 'delete' participant_id=participant.id %}" class="delete"><ion-icon name="close"></ion-icon></a></td>
                 </tr>
             {% endfor %}
             </tbody>

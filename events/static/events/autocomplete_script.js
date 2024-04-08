@@ -6,19 +6,17 @@ $.getJSON(jsonUrl, function(result) {
 
     data = result.map(item => {
         return {
-            label: item.phone_number,
+            label: `${item.last_name} ${item.first_name} ${item.patronymic}`,
             value: item
         };
     });
 
-    //console.log(data);
-
-    $( "#phone_number" ).autocomplete({
+    $( "#last_name" ).autocomplete({
         source: data,
         select: function(event, ui) {
             var selectedItem = ui.item.value;
-            var phone_number = selectedItem.phone_number
-            console.log(phone_number);
+            var last_name = selectedItem.last_name
+            console.log(last_name);
             $("#first_name").val(selectedItem.first_name);
             $("#patronymic").val(selectedItem.patronymic);
             $("#date_of_birth").val(selectedItem.date_of_birth);
@@ -27,10 +25,10 @@ $.getJSON(jsonUrl, function(result) {
             $("#house_number").val(selectedItem.house_number);
             $("#building").val(selectedItem.building);
             $("#apartment_number").val(selectedItem.apartment_number);
-            $("#last_name").val(selectedItem.last_name);
+            $("#phone_number").val(selectedItem.phone_number);
             $("#additional_phone_number").val(selectedItem.additional_phone_number);
             event.preventDefault()
-            $("#phone_number").val(selectedItem.phone_number);
+            $("#last_name").val(selectedItem.last_name);
             return false;
         }
     });
