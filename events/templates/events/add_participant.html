@@ -30,75 +30,80 @@
         <a href="/">
         <ion-icon class="home-button" name="home-outline" ></ion-icon></a>
     </h1>
+        <div class="main">
+            <form  method="post" class="post-form">
+                {% csrf_token %} <br>
+                {{ form.last_name }}<br>
+                {{ form.first_name }}<br>
+                {{ form.patronymic }}<br>
+                {{ form.date_of_birth }}<br>
+                {{ form.district }}<br>
+                {{ form.street }}<br>
+                {{ form.house_number }}<br>
+                {{ form.building }}<br>
+                {{ form.apartment_number }}<br>
+                {{ form.phone_number }}<br>
+                {{ form.additional_phone_number }}<br>
+                <div class="error"> {{ error }}</div>
+            <button class="add-button" type="submit">Добавить участника</button>
+            </form>
 
-    <div class="main">
-        <form  method="post" class="post-form">
-            {% csrf_token %} <br>
-            {{ form.last_name }}<br>
-            {{ form.first_name }}<br>
-            {{ form.patronymic }}<br>
-            {{ form.date_of_birth }}<br>
-            {{ form.district }}<br>
-            {{ form.street }}<br>
-            {{ form.house_number }}<br>
-            {{ form.building }}<br>
-            {{ form.apartment_number }}<br>
-            {{ form.phone_number }}<br>
-            {{ form.additional_phone_number }}<br>
-            <div class="error"> {{ error }}</div>
-        <button class="add-button" type="submit">Добавить участника</button>
-        </form>
-    </div>
-    <div class="part-table">
-        <table class="iksweb">
-            <tbody>
-                <tr>
-                    <td>№</td>
-                    <td>Фамилия</td>
-                    <td>Имя</td>
-                    <td>Отчество</td>
-                    <td>Дата рождения</td>
-                    <td>Район</td>
-                    <td>Улица</td>
-                    <td>Дом</td>
-                    <td>К/С</td>
-                    <td>Кв.</td>
-                    <td>Номер телефона</td>
-                    <td>Доп. тел.</td>
-                    <td class="delete-case"></td>
-                    <td class="change-color"></td>
-                </tr>
-            {% for participant in participants_list %}
-                <tr id="changeable-div" >
-                    <td style="background-color: {{ participant.color }};">{{ forloop.counter }}</td>
-                    <td style="background-color: {{ participant.color }};">{{ participant.last_name }}</td>
-                    <td style="background-color: {{ participant.color }};">{{ participant.first_name }}</td>
-                    <td style="background-color: {{ participant.color }};">{{ participant.patronymic }}</td>
-                    <td style="background-color: {{ participant.color }};">{{ participant.date_of_birth }}</td>
-                    <td style="background-color: {{ participant.color }};">{{ participant.district }}</td>
-                    <td style="background-color: {{ participant.color }};">{{ participant.street }}</td>
-                    <td style="background-color: {{ participant.color }};">{{ participant.house_number }}</td>
-                    <td style="background-color: {{ participant.color }};">{{ participant.building }}</td>
-                    <td style="background-color: {{ participant.color }};">{{ participant.apartment_number }}</td>
-                    <td style="background-color: {{ participant.color }};">{{ participant.phone_number }}</td>
-                    <td style="background-color: {{ participant.color }};">{{ participant.additional_phone_number }}</td>
-                    <td class="delete-case"><a href="{% url 'delete_participant' event_id=event.id participant_id=participant.id %}" class="delete"><ion-icon name="close"></ion-icon></a></td>
-                    <td class="change-color">
-                        <select class="selector" name="color" id="colorSelect" onchange = 'updateColor(this, url="{% url 'update_color' event_id=event.id participant_id=participant.id  %}")'
-                                style="appearance: none;
-                                width: 20px;
-                                height: 20px;">
-                            <option style="background-color: rgb(22,38,42);display: none;" value="rgb(255,255,255)"></option>
-                            <option style="background-color: rgb(255,255,255);" value="rgb(255,255,255)"></option>
-                            <option style="background-color: rgba(255, 255, 0, 0.35);" value="rgba(255, 255, 0, 0.35)"></option>
-                            <option style="background-color: rgba(0, 128, 0, 0.35);"  value="rgba(0, 128, 0, 0.35)"></option>
-                            <option style="background-color: rgba(255, 0, 0, 0.35);"  value="rgba(255, 0, 0, 0.35)"></option>
-                        </select>
-                    </td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-    </div>
+        </div>
+        <div class="part-table">
+            <table class="iksweb">
+                <tbody>
+                    <tr>
+                        <td>№</td>
+                        <td>Фамилия</td>
+                        <td>Имя</td>
+                        <td>Отчество</td>
+                        <td>Дата рождения</td>
+                        <td>Район</td>
+                        <td>Улица</td>
+                        <td>Дом</td>
+                        <td>К/С</td>
+                        <td>Кв.</td>
+                        <td>Номер телефона</td>
+                        <td>Доп. тел.</td>
+                        <td class="delete-case"></td>
+                        <td class="change-color"></td>
+                    </tr>
+                {% for participant in participants_list %}
+                    <tr id="changeable-div" >
+                        <td style="background-color: {{ participant.color }};">{{ forloop.counter }}</td>
+                        <td style="background-color: {{ participant.color }};">{{ participant.last_name }}</td>
+                        <td style="background-color: {{ participant.color }};">{{ participant.first_name }}</td>
+                        <td style="background-color: {{ participant.color }};">{{ participant.patronymic }}</td>
+                        <td style="background-color: {{ participant.color }};">{{ participant.date_of_birth }}</td>
+                        <td style="background-color: {{ participant.color }};">{{ participant.district }}</td>
+                        <td style="background-color: {{ participant.color }};">{{ participant.street }}</td>
+                        <td style="background-color: {{ participant.color }};">{{ participant.house_number }}</td>
+                        <td style="background-color: {{ participant.color }};">{{ participant.building }}</td>
+                        <td style="background-color: {{ participant.color }};">{{ participant.apartment_number }}</td>
+                        <td style="background-color: {{ participant.color }};">{{ participant.phone_number }}</td>
+                        <td style="background-color: {{ participant.color }};">{{ participant.additional_phone_number }}</td>
+                        <td class="delete-case"><a href="{% url 'delete_participant' event_id=event.id participant_id=participant.id %}" class="delete"><ion-icon name="close"></ion-icon></a></td>
+                        <td class="change-color">
+                            <select class="selector" name="color" id="colorSelect" onchange = 'updateColor(this, url="{% url 'update_color' event_id=event.id participant_id=participant.id  %}")'
+                                    style="appearance: none;
+                                    width: 20px;
+                                    height: 20px;">
+                                <option style="background-color: rgb(22,38,42);display: none;" value="rgb(255,255,255)"></option>
+                                <option style="background-color: rgb(255,255,255);" value="rgb(255,255,255)"></option>
+                                <option style="background-color: rgba(255, 255, 0, 0.35);" value="rgba(255, 255, 0, 0.35)"></option>
+                                <option style="background-color: rgba(0, 128, 0, 0.35);"  value="rgba(0, 128, 0, 0.35)"></option>
+                                <option style="background-color: rgba(255, 0, 0, 0.35);"  value="rgba(255, 0, 0, 0.35)"></option>
+                            </select>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="save-report-container">
+            <a href="{% url 'save_csv' event_id=event.id %}" class="save-report" download="{{ event.title }}_отчет.csv">
+                Выгрузить EXCEL
+            </a>
+        </div>
 </body>
 </html>

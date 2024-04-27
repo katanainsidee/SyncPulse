@@ -1,10 +1,12 @@
+import csv
 import json
+import os
 
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Events, Participant
 from .forms import ParticipantForm, ParticipantColorForm
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from django.urls import reverse
 
 
@@ -72,3 +74,26 @@ def update_color(request, event_id, participant_id):
         return redirect('add_participant', event_id)
 
     return JsonResponse({'error': 'Метод запроса не разрешен'}, status=405)
+
+
+@login_required
+def save_csv(request, event_id):
+    event = Events.objects.get(pk=event_id)
+    participants_list = Participant.objects.filter(event=event)
+    file_path = f'{event.id}_отчет.csv'
+    with open(file_path, 'w', newline='') as csv_file:
+        writer = csv.writer(csv_file, delimiter = ";")
+        writer.writerow(['№', 'Фамилия', 'Имя', 'Отчество', 'Дата рождения', 'Район', 'Улица', 'Дом', 'Корпус/строение', 'Квартира', 'Номер телефона', 'Доп. номер телефона'])
+        for number, participant in enumerate(participants_list, start=1):
+            writer.writerow([number, participant.last_name, participant.first_name, participant.patronymic,
+                             participant.date_of_birth, participant.district, participant.street,
+                             participant.house_number, participant.building, participant.apartment_number,
+                             participant.phone_number, participant.additional_phone_number])
+
+    with open(file_path, 'rb') as file:
+        file_content = file.read()
+
+    response = HttpResponse(file_content, content_type='application/octet-stream')
+    response['Content-Disposition'] = f'attachment; filename={file_path}.csv'
+    os.remove(file_path)
+    return response

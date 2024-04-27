@@ -9,13 +9,13 @@ html {
 
 body {
     margin: 0;
-    background: linear-gradient(to bottom right, #ea3e39, #02b4ed);
     font-family: 'Montserrat', sans-serif;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 100vh;
+    background: linear-gradient(to bottom right, #ea3e39, #02b4ed);
 }
 
 .add-header {
@@ -34,6 +34,7 @@ body {
     margin: 0px;
     padding: 15px 0 15px 0;
 }
+
 
 .main {
     margin-left: 20px;
@@ -164,5 +165,31 @@ a:active {
 .form-control::placeholder {
     font-family: 'Montserrat', sans-serif;
     color: rgba(27, 27, 27, 0.29);
+}
+
+.save-report-container {
+    position: absolute;
+    left: 150px;
+    bottom: 50px;
+}
+.save-report{
+    margin-top: 25px;
+    background-color: rgba(255, 255, 255, 0.45);
+    font-weight: bold;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    padding: 8px;
+    border: 2px solid #234502;
+    color: #234502;
+    border-radius: 11px;
+    cursor: pointer;
+    transition: color, background-color, transform 0.2s ease;
+}
+
+.save-report:hover{
+    color: white;
+    background-color: #234502;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transform: scale(1.03);
 }
 
