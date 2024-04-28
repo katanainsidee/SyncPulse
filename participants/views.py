@@ -1,13 +1,13 @@
 from django.shortcuts import render, redirect
 from .forms import ParticipantProfileForm
-from .models import ParticipantProfile
-from django.http import JsonResponse
 import json
 from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
-import os
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+#import pandas as pd
+from participants.models import ParticipantProfile
+
 
 
 @login_required
@@ -57,3 +57,30 @@ def update_json_file(sender, instance, **kwargs):
         item['additional_phone_number'] = str(item['additional_phone_number'])
     with open('events/static/events/data.json', 'w') as f:
         json.dump(data, f)
+
+# @login_required
+# def complete_table(request):
+#     file_path = 'D:\SyncPulse\SyncPulse\participants\Книга1.xlsx'
+#     excel_data = pd.read_excel(file_path, usecols='A:K')
+#     number = 0
+#     for index, row in excel_data.iterrows():
+#         try:
+#             participant_profile = ParticipantProfile(
+#                 last_name=row.get('Фамилия', 'НЕ УКАЗАНО'),
+#                 first_name=row.get('Имя', 'НЕ УКАЗАНО'),
+#                 patronymic=row.get('Отчество', 'НЕ УКАЗАНО'),
+#                 date_of_birth=row.get('Дата рождения', '27.04.2024'),
+#                 district=row.get('Район', None),
+#                 street=row.get('Улица', None),
+#                 house_number=row.get('Дом', None),
+#                 building=row.get('Корпус/Строение', None),
+#                 apartment_number=row.get('Квартира', None),
+#                 phone_number=row.get('Номер телефона', '+79999999999'),
+#                 additional_phone_number=row.get('Дополнительный номер телефона', None),
+#             )
+#             participant_profile.save()
+#         except Exception as e:
+#             print(e)
+#             number += 1
+#     print(f'{number} человек не добавилось')
+#     return redirect('add_user')
