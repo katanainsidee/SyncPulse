@@ -58,6 +58,8 @@ def update_json_file(sender, instance, **kwargs):
     with open('events/static/events/data.json', 'w') as f:
         json.dump(data, f)
 
+
+# для обновления базы через EXCEL файлик
 # @login_required
 # def complete_table(request):
 #     file_path = 'D:\SyncPulse\SyncPulse\participants\Книга1.xlsx'
