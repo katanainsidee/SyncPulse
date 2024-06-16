@@ -64,9 +64,8 @@ class ParticipantProfileForm(ModelForm):
             }),
             "additional_phone_number": TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'Доп. номер телефона',
+                'placeholder': 'Доп. информация',
                 'id': 'additional_phone_number',
-                'maxlength': '18'
+                'maxlength': '30'
             }),
-
         }

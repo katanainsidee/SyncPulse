@@ -6,7 +6,8 @@ from django.forms import ModelForm, TextInput, NumberInput, DateInput, Select
 class ParticipantForm(ModelForm):
     class Meta:
         model = Participant
-        fields = ['first_name', 'last_name', 'patronymic', 'date_of_birth', 'district', 'street', 'house_number', 'building', 'apartment_number', 'phone_number', 'additional_phone_number']
+        fields = ['first_name', 'last_name', 'patronymic', 'date_of_birth', 'district', 'street', 'house_number',
+                  'building', 'apartment_number', 'phone_number', 'additional_phone_number']
 
         widgets = {
             "first_name": TextInput(attrs={
@@ -63,9 +64,9 @@ class ParticipantForm(ModelForm):
             }),
             "additional_phone_number": TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'Доп. номер телефона',
+                'placeholder': 'Доп. информация',
                 'id': 'additional_phone_number',
-                'maxlength': '15'
+                'maxlength': '30'
             })
         }
 
